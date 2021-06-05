@@ -1,0 +1,12 @@
+.task {
+    width: 5%;
+    margin: 4px 0;
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+.task.complete {
+    background-color: blue;
+    width: 5%;
+    text-decoration: line-through;
+}
