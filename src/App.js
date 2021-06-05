@@ -36,6 +36,26 @@ class App extends React.Component {
     })
   }
 
+  toggleComplete = taskID =>{
+    this.setState({
+      todo: this.state.todo.map(task => {
+        if (task.id === taskID){
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        }
+      return task;
+      })
+    })
+  };
+
+  clearComplete = () => {
+    this.setState({
+      todo: this.state.todo.filter(task => !task.completed)
+    })
+  };
+
 
   render() {
     return (
@@ -44,7 +64,8 @@ class App extends React.Component {
         <TodoForm addTask={this.addTask}/>
         <TodoList 
           todo={this.state.todo}
-          
+          toggleComplete={this.toggleComplete}
+          clearComplete={this.clearComplete}
         />
       </div>
     );
